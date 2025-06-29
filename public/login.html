@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="overlay">
+    <div class="login-card">
+      <h2>Login to Your Account</h2>
+      <form id="login-form">
+        <input type="text" id="username" placeholder="Username" required class="input-field">
+        <input type="password" id="password" placeholder="Password" required class="input-field">
+        <button type="submit" class="login-button">Login</button>
+      </form>
+      <button onclick="window.location.href='index.html'" class="main-link" style="margin: 2vh;">Back to Home</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        localStorage.setItem("token", data.token);
+        window.location.href = "main.html";
+      } else {
+        alert("Login failed: " + data.message);
+      }
+    });
+  </script>
+</body>
+</html>

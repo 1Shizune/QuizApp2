@@ -1,0 +1,82 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(images/tumblr_3408e207a114a1d202554ef125610780_47f688dc_1280.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 10vh 0;
+}
+
+.question{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    padding: 0 5vw;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 8vh;
+    margin: 5vh auto 0 auto;
+}
+
+.question p{
+    color:rgb(11, 25, 223);
+    font-size: 3vw;
+    font-weight: bolder;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+     background-color: rgba(255, 255, 255, 0.7); /* light background */
+     border-radius: 5%;
+}
+
+.answers{
+    height: 60vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2vh 5vw;
+    width: 70vw;
+    margin: 0 auto;
+    margin-bottom: 10vh;
+
+}
+
+.box{
+    color: rgb(25, 212, 197);
+    font-weight: bolder;
+    display: flex;
+    min-width: 200px;
+    max-width: 500px;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1rem, 2vw, 3rem);
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: auto;
+}
+
+.box:hover{
+    background-color: rgb(160, 111, 201);
+}
+
+.row1{
+    display: flex;
+}
+
+#A{ grid-column: 1; grid-row: 1;}
+#B{ grid-column: 1; grid-row: 2;}
+#C{ grid-column: 2; grid-row: 1;}
+#D{ grid-column: 2; grid-row: 2;}
